@@ -1,0 +1,12 @@
+﻿# Environment and system files
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+
+# IDE and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace

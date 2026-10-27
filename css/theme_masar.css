@@ -1,0 +1,353 @@
+﻿/* ==========================================================================
+   Masar Flights - Modern Dark Theme
+   Palette: Electric Green (#76B900), Deep Black, Sleek Gray
+   ========================================================================== */
+
+:root {
+  --primary-green: #76B900;
+  --primary-green-hover: #659e00;
+  --primary-green-glow: rgba(118, 185, 0, 0.35);
+  --primary-green-subtle: rgba(118, 185, 0, 0.12);
+  
+  --bg-black: #0c0e11;
+  --bg-dark-1: #121519;
+  --bg-dark-2: #181c22;
+  --bg-card: #1d2229;
+  --bg-card-hover: #232932;
+  
+  --border-gray: #2d333d;
+  --border-gray-light: #3d4552;
+  
+  --text-white: #ffffff;
+  --text-muted-gray: #94a3b8;
+  --text-dark: #0c0e11;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-gray-light);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-green);
+}
+
+body {
+  background-color: var(--bg-black) !important;
+  color: var(--text-white);
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+}
+
+/* ==================== Navigation Bar ==================== */
+#mainNav {
+  background: rgba(12, 14, 17, 0.92) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(118, 185, 0, 0.25);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.3s ease;
+}
+
+#mainNav .navbar-brand {
+  color: var(--primary-green) !important;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 1.35rem;
+  text-shadow: 0 0 15px rgba(118, 185, 0, 0.4);
+}
+
+#mainNav .navbar-nav .nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem !important;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+#mainNav .navbar-nav .nav-link:hover,
+#mainNav .navbar-nav .nav-link.active {
+  color: var(--primary-green) !important;
+}
+
+#mainNav .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--primary-green);
+  transition: width 0.3s ease;
+}
+
+#mainNav .navbar-nav .nav-link:hover::after,
+#mainNav .navbar-nav .nav-link.active::after {
+  width: 70%;
+}
+
+/* ==================== Hero Masthead ==================== */
+header.masthead {
+  position: relative;
+  border-bottom: 2px solid var(--border-gray);
+}
+
+header.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(12, 14, 17, 0.75) 0%, rgba(12, 14, 17, 0.92) 100%);
+  z-index: 0;
+}
+
+header.masthead .container,
+header.masthead .container-fluid {
+  position: relative;
+  z-index: 1;
+}
+
+.col-lg-10.align-self-end.mb-4.page-title {
+  background: rgba(18, 21, 25, 0.88) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(118, 185, 0, 0.3);
+  border-radius: 16px !important;
+  padding: 2.5rem 2rem !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+}
+
+hr.divider {
+  border-color: var(--primary-green) !important;
+  border-width: 3px !important;
+  max-width: 4rem !important;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(118, 185, 0, 0.5);
+}
+
+/* ==================== Search & Booking Card ==================== */
+.card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-gray) !important;
+  border-radius: 14px !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.card-body {
+  padding: 1.5rem !important;
+}
+
+label.control-label {
+  color: #e2e8f0 !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Forms & Inputs */
+.form-control,
+.custom-select,
+.select2-container--default .select2-selection--single {
+  background-color: var(--bg-dark-1) !important;
+  border: 1px solid var(--border-gray-light) !important;
+  color: var(--text-white) !important;
+  border-radius: 8px !important;
+  height: calc(2.4rem + 2px) !important;
+  transition: all 0.25s ease;
+}
+
+.form-control:focus,
+.custom-select:focus,
+.select2-container--default.select2-container--open .select2-selection--single {
+  border-color: var(--primary-green) !important;
+  box-shadow: 0 0 0 0.2rem var(--primary-green-glow) !important;
+  background-color: var(--bg-dark-2) !important;
+  color: var(--text-white) !important;
+}
+
+/* Select2 Dropdown */
+.select2-dropdown {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-gray-light) !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  background-color: var(--bg-dark-1) !important;
+  border: 1px solid var(--border-gray) !important;
+  color: var(--text-white) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: var(--primary-green) !important;
+  color: var(--text-dark) !important;
+  font-weight: bold;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--text-white) !important;
+  line-height: 2.3rem !important;
+}
+
+/* Radio buttons & labels */
+.form-check label {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-green);
+  border-color: var(--primary-green);
+}
+
+/* ==================== Buttons ==================== */
+.btn-primary {
+  background-color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  color: var(--text-dark) !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 0.55rem 1.4rem !important;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(118, 185, 0, 0.3) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-green-hover) !important;
+  border-color: var(--primary-green-hover) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(118, 185, 0, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  background-color: transparent !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-green) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 4px 15px rgba(118, 185, 0, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #333a44 !important;
+  border-color: #333a44 !important;
+  color: #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+
+.btn-secondary:hover {
+  background-color: #434c58 !important;
+  color: #ffffff !important;
+}
+
+/* ==================== Flights Search Results ==================== */
+.page-section {
+  background-color: var(--bg-black) !important;
+  padding: 3rem 0;
+}
+
+.flight-item-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.flight-item-card:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 12px rgba(118, 185, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Price Display */
+.text-price {
+  color: var(--primary-green) !important;
+  font-weight: 800;
+  font-size: 1.6rem;
+  text-shadow: 0 0 10px rgba(118, 185, 0, 0.3);
+}
+
+/* Modals */
+.modal-content {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-gray-light) !important;
+  border-radius: 14px !important;
+  color: var(--text-white) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-gray) !important;
+  background-color: var(--bg-dark-1) !important;
+  border-radius: 14px 14px 0 0 !important;
+}
+
+.modal-header .modal-title {
+  color: var(--primary-green) !important;
+  font-weight: 700;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-gray) !important;
+  background-color: var(--bg-dark-1) !important;
+}
+
+.close {
+  color: #94a3b8 !important;
+  text-shadow: none !important;
+}
+.close:hover {
+  color: var(--primary-green) !important;
+}
+
+/* Toast Alerts */
+.toast {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--primary-green) !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.toast.bg-success {
+  background-color: #122810 !important;
+  border-color: var(--primary-green) !important;
+}
+
+.btn-info {
+  background-color: var(--primary-green) !important;
+  border-color: var(--primary-green) !important;
+  color: var(--text-dark) !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-info:hover {
+  background-color: var(--primary-green-hover) !important;
+  border-color: var(--primary-green-hover) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(118, 185, 0, 0.4) !important;
+}
+
+#login-frm a, #signup-frm a {
+  color: var(--primary-green) !important;
+  font-weight: 600;
+}

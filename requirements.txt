@@ -1,0 +1,39 @@
+# ==============================================================================
+# Masar Flights - System Requirements & Dependencies
+# متطلبات ومكتبات نظام مسار فلايتس (Masar Flights) لحجز وإدارة رحلات الطيران
+# ==============================================================================
+
+# --- Server & Runtime Environment (بيئة التشغيل والخادم) ---
+# Apache HTTP Server >= 2.4 (or Nginx)
+# PHP >= 7.2 (Recommended: PHP 7.4 - 8.x)
+# MySQL Database Server >= 5.7 / MariaDB >= 10.4
+
+# --- Required PHP Extensions (امتدادات PHP المطلوبة في php.ini) ---
+php-mysqli          # Direct MySQL database communication & queries
+php-json            # JSON parsing & AJAX responses
+php-session         # Session management for user & admin authentication
+php-mbstring        # Multibyte string support (UTF-8 / Arabic support)
+php-fileinfo        # File upload validation (Airlines logos & cover images)
+php-gd              # Image processing & thumbnail support
+
+# --- Frontend Libraries & Frameworks (المكتبات والواجهات الأمامية) ---
+# Included locally in /admin/assets/ and /assets/ or loaded via CDN:
+Bootstrap == 4.5.0              # Responsive CSS Framework & UI Components
+jQuery >= 3.5.0                 # DOM manipulation and AJAX requests
+Select2 >= 4.0.13               # Searchable dropdown selects (Airports, Airlines)
+DataTables >= 1.10.21           # Paginated & searchable data tables for admin
+Bootstrap-Datepicker == 1.9.0   # Date selection calendar picker
+jQuery-DateTimePicker == 2.5.20 # Date & Time picker for flight scheduling
+FontAwesome == 5.13.0           # Vector icons and social symbols
+Boxicons == 2.0.7               # Modern clean vector icons
+Remixicon == 2.5.0              # Additional icon set
+Owl Carousel == 2.3.4           # Responsive carousel / slider
+Magnific Popup == 1.1.0         # Responsive lightbox / modal viewer
+Venobox == 1.9.1                # Lightbox gallery plugin
+jQuery TE == 1.4.0              # Lightweight WYSIWYG HTML Text Editor
+
+# --- Database Requirements (بيانات قاعدة البيانات الافتراضية) ---
+Database-Name: masar_flights_db (or flight_booking_db)
+Character-Set: utf8mb4
+Collation: utf8mb4_general_ci
+SQL-Import-File: database/masar_flights_db.sql (or database/flight_booking_db.sql)

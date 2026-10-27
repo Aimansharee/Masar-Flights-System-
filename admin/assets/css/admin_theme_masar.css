@@ -1,0 +1,330 @@
+﻿/* ==========================================================================
+   Masar Flights - Admin Theme
+   Colors: Electric Green (#76B900), Deep Black (#0c0e11), Sleek Gray
+   ========================================================================== */
+
+:root {
+  --admin-primary: #76B900;
+  --admin-primary-hover: #659e00;
+  --admin-primary-glow: rgba(118, 185, 0, 0.3);
+  
+  --admin-bg-black: #0c0e11;
+  --admin-bg-dark: #121519;
+  --admin-bg-sidebar: #14171c;
+  --admin-bg-card: #181c22;
+  --admin-bg-card-header: #13161b;
+  
+  --admin-border: #262c35;
+  --admin-border-light: #363d49;
+  
+  --admin-text-white: #f8fafc;
+  --admin-text-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--admin-bg-black) !important;
+  color: var(--admin-text-white) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==================== Topbar ==================== */
+.navbar.bg-primary {
+  background: var(--admin-bg-dark) !important;
+  border-bottom: 2px solid var(--admin-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.logo {
+  background: #1a1e24 !important;
+  border: 1.5px solid var(--admin-primary) !important;
+  color: var(--admin-primary) !important;
+  box-shadow: 0 0 10px rgba(118, 185, 0, 0.3);
+}
+
+/* ==================== Sidebar ==================== */
+nav#sidebar {
+  background: var(--admin-bg-sidebar) !important;
+  border-right: 1px solid var(--admin-border) !important;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+nav#sidebar .sidebar-list a.nav-item {
+  color: var(--admin-text-muted) !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+  background: transparent !important;
+  padding: 0.9rem 1.4rem !important;
+  font-weight: 600;
+  transition: all 0.25s ease !important;
+}
+
+nav#sidebar .sidebar-list a.nav-item .icon-field {
+  color: var(--admin-primary) !important;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+nav#sidebar .sidebar-list a.nav-item:hover {
+  background: #1c2128 !important;
+  color: var(--admin-primary) !important;
+  padding-left: 1.7rem !important;
+}
+
+nav#sidebar .sidebar-list a.nav-item.active {
+  background: rgba(118, 185, 0, 0.12) !important;
+  color: var(--admin-primary) !important;
+  border-left: 4px solid var(--admin-primary) !important;
+  font-weight: 700;
+}
+
+/* ==================== Main View Panel & Cards ==================== */
+main#view-panel {
+  background-color: var(--admin-bg-black) !important;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.card {
+  background: var(--admin-bg-card) !important;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 12px !important;
+  color: var(--admin-text-white) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.card-header {
+  background: var(--admin-bg-card-header) !important;
+  border-bottom: 1px solid var(--admin-border) !important;
+  color: var(--admin-primary) !important;
+  font-weight: 700 !important;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* ==================== Form Elements ==================== */
+.form-control,
+.custom-select {
+  background-color: var(--admin-bg-dark) !important;
+  border: 1px solid var(--admin-border-light) !important;
+  color: var(--admin-text-white) !important;
+  border-radius: 8px !important;
+}
+
+.form-control:focus,
+.custom-select:focus {
+  border-color: var(--admin-primary) !important;
+  box-shadow: 0 0 0 0.2rem var(--admin-primary-glow) !important;
+  background-color: #171b22 !important;
+  color: #ffffff !important;
+}
+
+label.control-label {
+  color: #cbd5e1 !important;
+  font-weight: 600;
+}
+
+/* ==================== Tables (DataTables) ==================== */
+.table {
+  color: var(--admin-text-white) !important;
+  border-color: var(--admin-border) !important;
+}
+
+.table thead th {
+  background-color: var(--admin-bg-dark) !important;
+  border-color: var(--admin-border) !important;
+  color: var(--admin-primary) !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid var(--admin-primary) !important;
+}
+
+.table tbody tr {
+  background-color: var(--admin-bg-card) !important;
+  border-color: var(--admin-border) !important;
+  transition: background 0.2s ease;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #15191f !important;
+}
+
+.table tbody tr:hover {
+  background-color: #1e242d !important;
+}
+
+.table td, .table th {
+  border-top: 1px solid var(--admin-border) !important;
+  vertical-align: middle !important;
+}
+
+/* DataTables search and pagination */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  color: var(--admin-text-muted) !important;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  background-color: var(--admin-bg-dark) !important;
+  border: 1px solid var(--admin-border-light) !important;
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: var(--admin-primary) !important;
+  color: #0c0e11 !important;
+  font-weight: bold;
+  border-color: var(--admin-primary) !important;
+  border-radius: 6px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: var(--admin-text-white) !important;
+  border-radius: 6px;
+}
+
+/* ==================== Buttons ==================== */
+.btn-primary {
+  background-color: var(--admin-primary) !important;
+  border-color: var(--admin-primary) !important;
+  color: #0c0e11 !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(118, 185, 0, 0.3) !important;
+  transition: all 0.25s ease !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--admin-primary-hover) !important;
+  border-color: var(--admin-primary-hover) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(118, 185, 0, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  color: var(--admin-primary) !important;
+  border-color: var(--admin-primary) !important;
+  background: transparent !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--admin-primary) !important;
+  color: #0c0e11 !important;
+}
+
+.btn-secondary {
+  background-color: #333a44 !important;
+  border-color: #333a44 !important;
+  color: #e2e8f0 !important;
+  border-radius: 8px !important;
+}
+
+/* Modals */
+.modal-content {
+  background-color: var(--admin-bg-card) !important;
+  border: 1px solid var(--admin-border-light) !important;
+  border-radius: 12px !important;
+  color: var(--admin-text-white) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--admin-border) !important;
+  background-color: var(--admin-bg-dark) !important;
+}
+
+.modal-header .modal-title {
+  color: var(--admin-primary) !important;
+  font-weight: 700;
+}
+
+/* --- Topbar Styles --- */
+.logo {
+  margin: auto;
+  font-size: 18px;
+  background: #181b22 !important;
+  padding: 7px 11px;
+  border-radius: 50%;
+  color: #76B900 !important;
+  border: 1.5px solid #76B900 !important;
+  box-shadow: 0 0 10px rgba(118, 185, 0, 0.35);
+}
+
+.topbar-nav {
+  background: #0e1115 !important;
+  border-bottom: 2px solid #76B900 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.logout-btn {
+  color: #e2e8f0 !important;
+  transition: color 0.2s ease;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  color: #76B900 !important;
+  text-decoration: none;
+}
+
+/* --- Dashboard Stat Cards --- */
+.stat-card {
+  background: #171b21 !important;
+  border: 1px solid #272d36 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  border-color: #76B900 !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5), 0 0 15px rgba(118, 185, 0, 0.2);
+}
+
+.stat-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #76B900;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #76B900;
+}
+
+.stat-title {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  color: rgba(118, 185, 0, 0.35);
+}
+
+/* --- Modal Sizing --- */
+.modal-dialog.large {
+  width: 80% !important;
+  max-width: unset;
+}
+.modal-dialog.mid-large {
+  width: 50% !important;
+  max-width: unset;
+}

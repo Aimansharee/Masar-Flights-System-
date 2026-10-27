@@ -1,205 +1,300 @@
-# مسار فلايتس | Masar Flights
-### نظام متكامل لإدارة وحجز تذاكر رحلات الطيران عبر الإنترنت
+# ✈️ Masar Flights
+### A Comprehensive Online Flight Booking and Management System
 
-**مسار فلايتس (Masar Flights)** هو نظام ويب متقدم وشامل لإدارة وحجز رحلات الطيران، تم تطويره بالاعتماد على **PHP** وقواعد بيانات **MySQL** مع واجهات أمامية تفاعلية وحديثة باستخدام **Bootstrap** و **jQuery**. يتيح النظام تجربة حجز سلسة للمسافرين ولوحة تحكم متكاملة لإدارة شركات الطيران والمطارات والرحلات والحجوزات.
+**Masar Flights** is a comprehensive web-based flight booking and management system developed using **PHP** and **MySQL**, with modern, interactive user interfaces built using **Bootstrap** and **jQuery**.
 
----
-
-## 📌 الفهرس
-1. [المميزات الرئيسية](#-المميزات-الرئيسية)
-2. [التقنيات والمكتبات المستخدمة](#-التقنيات-والمكتبات-المستخدمة)
-3. [هيكل قاعدة البيانات](#-هيكل-قاعدة-البيانات)
-4. [متطلبات التشغيل](#-متطلبات-التشغيل)
-5. [طريقة التثبيت والتشغيل بالتفصيل](#-طريقة-التثبيت-والتشغيل-بالتفصيل)
-6. [بيانات تسجيل الدخول الافتراضية](#-بيانات-تسجيل-الدخول-الافتراضية)
-7. [هيكل ملفات ومجلدات المشروع](#-هيكل-ملفات-ومجلدات-المشروع)
-8. [حل المشاكل الشائعة](#-حل-المشاكل-الشائعة)
+The system provides passengers with a seamless flight search and booking experience while offering administrators a complete dashboard for managing airlines, airports, flight schedules, reservations, users, and system settings.
 
 ---
 
-## ✈️ المميزات الرئيسية
+## 📌 Table of Contents
 
-### 1. بوابة المسافرين (Client Portal):
-* **محرك بحث متقدم عن الرحلات**: البحث الفوري حسب مطار المغادرة ومطار الوصول وتاريخ الذهاب وتاريخ العودة، مع خيارين (ذهاب فقط One-way / ذهاب وعودة Round-trip).
-* **عرض تفصيلي للرحلات المتاحة**: استعراض أوقات الإقلاع والهبوط، شركات الطيران وشعاراتها، رقم الرحلة/الطائرة، أسعار التذاكر، وعدد المقاعد المتبقية في كل رحلة.
-* **حجز جماعي وفردي للرحلات**: إمكانية حجز مقعد واحد أو مقاعد متعددة في طلب واحد، مع إدخال بيانات المسافرين (الاسم الكامل، العنوان، رقم الهاتف).
-* **حسابات المستخدمين**: تسجيل دخول وإنشاء حسابات جديدة للمسافرين بكل سهولة.
-* **صفحة من نحن (About Us)**: صفحة تعريفية تفاعلية يتم التحكم بمحتواها بالكامل من خلال لوحة الإدارة.
-
-### 2. لوحة تحكم الإدارة (Admin Panel):
-* **إدارة خطوط وشركات الطيران (Airlines Management)**: إضافة وتعديل وحذف شركات الطيران مع رفع الشعار الخاص بكل شركة.
-* **إدارة المطارات (Airports Management)**: إضافة وتعديل المطارات وتحديد المدينة والبلد.
-* **إدارة الرحلات والجدولة (Flights Management)**: جدولة الرحلات وتحديد شركة الطيران، ومطاري الإقلاع والوصول، والمواعيد، وسعة المقاعد، وسعر التذكرة.
-* **إدارة الحجوزات (Booked Flights Management)**: تتبع جميع الحجوزات، استعراض بيانات الركاب لكل حجز، إمكانية تعديل بيانات المسافرين، أو إلغاء الحجز.
-* **إدارة المستخدمين والصلاحيات (User Management)**: إدارة حسابات مدراء وموظفي النظام.
-* **إعدادات النظام العامة (System Settings)**: تخصيص اسم النظام (**Masar Flights**)، البريد الإلكتروني، هاتف التواصل، صورة الغلاف (Banner/Cover)، ومحتوى صفحة من نحن بواسطة محرر نصوص غني (WYSIWYG Editor).
+1. [Key Features](#-key-features)
+2. [Technologies and Libraries Used](#-technologies-and-libraries-used)
+3. [Database Structure](#-database-structure)
+4. [System Requirements](#-system-requirements)
+5. [Installation and Setup Guide](#-installation-and-setup-guide)
+6. [Default Login Credentials](#-default-login-credentials)
+7. [Project File and Folder Structure](#-project-file-and-folder-structure)
+8. [Troubleshooting](#-troubleshooting)
 
 ---
 
-## 🛠 التقنيات والمكتبات المستخدمة
+## ✈️ Key Features
 
-* **الخلفية (Backend)**:
-  * لغة البرمجة: **PHP (7.2+)**
-  * الاتصال بقاعدة البيانات: **MySQLi (Object-Oriented)**
-  * إدارة الجلسات والمصادقة: **PHP Sessions**
-* **قاعدة البيانات (Database)**:
-  * **MySQL / MariaDB**
-* **الواجهة الأمامية (Frontend)**:
-  * **HTML5** & **CSS3**
-  * **Bootstrap 4.5.0**: لتصميم صفحات تفاعلية متجاوبة مع كافة الشاشات والهواتف.
-  * **jQuery**: لإرسال ومعالجة طلبات AJAX وتحديث البيانات دون إعادة تحميل الصفحة.
-  * **Select2**: لقوائم الاختيار الذكية مع ميزة البحث السريع (لاختيار المطارات والشركات).
-  * **DataTables**: لعرض جداول البيانات مع إمكانية الترتيب والبحث والتقسيم لصفحات.
-  * **Bootstrap Datepicker & DateTimePicker**: لتحديد تواريخ ومواعيد الرحلات بدقة وسهولة.
-  * **FontAwesome 5 & Boxicons**: حزم أيقونات عصرية للملاحة والتصميم.
-  * **jQuery TE**: محرر نصوص متقدم لإدارة النصوص المنسقة في لوحة التحكم.
+### 1. Client Portal
 
----
+- **Advanced Flight Search:** Search for flights based on departure airport, arrival airport, departure date, and return date, with support for both one-way and round-trip bookings.
 
-## 🗄 هيكل قاعدة البيانات (`masar_flights_db`)
+- **Detailed Flight Information:** View available flights, departure and arrival times, airlines and their logos, flight or aircraft numbers, ticket prices, and remaining seat availability.
 
-يحتوي ملف `database/masar_flights_db.sql` على الجداول التالية:
+- **Individual and Group Reservations:** Book one or multiple seats in a single reservation and enter passenger information, including full name, address, and phone number.
 
-| اسم الجدول | الوصف |
-| :--- | :--- |
-| `system_settings` | الإعدادات العامة للنظام (اسم النظام، البريد، الهاتف، صورة الغلاف، وصف الموقع) |
-| `airlines_list` | قائمة شركات وخطوط الطيران وشعاراتها المرفوعة |
-| `airport_list` | قائمة المطارات والمواقع الجغرافية لكل مطار |
-| `flight_list` | بيانات الرحلات المجدولة، أوقات الإقلاع والوصول، الأسعار، والمقاعد المتاحة |
-| `booked_flight` | سجل التذاكر والركاب المحجوزين وبيانات الاتصال لكل مسافر |
-| `users` | حسابات المدراء ومستخدمي النظام وكلمات المرور والصلاحيات |
+- **User Authentication:** Allow passengers to register new accounts and securely log in to the system.
+
+- **About Us Page:** An interactive informational page whose content can be managed through the administration dashboard.
+
+### 2. Admin Panel
+
+- **Airlines Management:** Add, edit, and delete airline records, including uploading airline logos.
+
+- **Airports Management:** Add, update, and delete airports, including their corresponding cities and countries.
+
+- **Flights Management:** Schedule and manage flights by assigning airlines, departure and arrival airports, flight times, seating capacity, and ticket prices.
+
+- **Booking Management:** Monitor flight reservations, view passenger details, modify passenger information, and cancel bookings when necessary.
+
+- **User Management:** Manage system administrator and staff accounts.
+
+- **System Settings:** Customize the system name (**Masar Flights**), contact email address, phone number, banner or cover image, and About Us content through a **WYSIWYG Editor**.
 
 ---
 
-## 💻 متطلبات التشغيل
+## 🛠 Technologies and Libraries Used
 
-* بيئة خادم ويب محلي: **[XAMPP](https://www.apachefriends.org/)** (موصى به)، أو **WampServer** أو **Laragon**.
-* خادم **Apache** مفعّل.
-* خادم قواعد بيانات **MySQL** أو **MariaDB** مفعّل.
-* متصفح إنترنت حديث (Chrome, Edge, Firefox, Safari).
-* امتدادات PHP:
-  * `mysqli`
-  * `session`
-  * `json`
-  * `fileinfo`
-  * `mbstring`
-  * `gd`
+### Backend
 
----
+- **Programming Language:** PHP 7.2+
+- **Database Connectivity:** MySQLi (Object-Oriented)
+- **Session Management and Authentication:** PHP Sessions
 
-## 🚀 طريقة التثبيت والتشغيل بالتفصيل
+### Database
 
-### الخطوة 1: تشغيل خادم XAMPP
-1. قم بفتح برنامج **XAMPP Control Panel**.
-2. اضغط على زر **Start** بجانب خدمتي **Apache** و **MySQL** حتى تظهر باللون الأخضر.
+- **MySQL / MariaDB**
 
-### الخطوة 2: وضع ملفات المشروع في مجلد الخادم
-1. انسخ مجلد المشروع إلى مجلد `htdocs` داخل مسار تثبيت XAMPP:
-   * المسار النموذجي في ويندوز:
-     ```text
-     C:\xampp\htdocs\Masar_Flights
-     ```
+### Frontend
 
-### الخطوة 3: إنشاء واستيراد قاعدة البيانات
-1. افتح المتصفح وتوجه إلى أداة phpMyAdmin:
-   ```text
-   http://localhost/phpmyadmin
-   ```
-2. اضغط على **New (جديد)** من القائمة الجانبية.
-3. أدخل اسم قاعدة البيانات:
-   ```text
-   masar_flights_db
-   ```
-   واختر الترميز `utf8mb4_general_ci` ثم اضغط **Create (إنشاء)**.
-4. اضغط على قاعدة البيانات التي تم إنشاؤها ثم اختر تبويب **Import (استيراد)** من القائمة العلوية.
-5. اضغط على **Choose File (اختيار ملف)** وحدد الملف:
-   ```text
-   database/masar_flights_db.sql
-   ```
-6. اضغط على **Import (انطلق / Go)** في أسفل الصفحة لإتمام استيراد الجداول والبيانات التجريبية.
-
-### الخطوة 4: التحقق من إعدادات الاتصال (اختياري)
-* إعدادات الاتصال الافتراضية محددة في الملف [admin/db_connect.php](file:///f:/Masar_Flights/admin/db_connect.php):
-  ```php
-  $conn = new mysqli('localhost', 'root', '', 'masar_flights_db');
-  ```
-  *(إذا كان لخادم MySQL لديك كلمة مرور، ضعها في المعامل الثالث)*.
-
-### الخطوة 5: تصفح واستخدام النظام
-* **الموقع الرئيسي للمسافرين**:
-  ```text
-  http://localhost/Masar_Flights
-  ```
-* **لوحة تحكم الإدارة (Admin Panel)**:
-  ```text
-  http://localhost/Masar_Flights/admin
-  ```
+- **HTML5 & CSS3:** Used to structure and style the user interface.
+- **Bootstrap 4.5.0:** Provides responsive layouts and interactive components compatible with desktops, tablets, and mobile devices.
+- **jQuery:** Handles AJAX requests and dynamically updates content without requiring full-page reloads.
+- **Select2:** Provides searchable dropdown menus for selecting airports and airlines.
+- **DataTables:** Enhances data tables with sorting, searching, and pagination capabilities.
+- **Bootstrap Datepicker & DateTimePicker:** Enables convenient selection of flight dates and times.
+- **FontAwesome 5 & Boxicons:** Provides modern icons for navigation and interface design.
+- **jQuery TE:** A rich-text editor used to manage formatted content in the administration dashboard.
 
 ---
 
-## 🔑 بيانات تسجيل الدخول الافتراضية
+## 🗄 Database Structure
 
-### حساب مدير النظام (Admin):
-* **رابط الدخول**: `http://localhost/Masar_Flights/admin`
-* **اسم المستخدم (Username)**: `admin`
-* **كلمة المرور (Password)**: `admin123`
+**Database Name:** `masar_flights_db`
 
-### حساب مسافر تجريبي:
-* **اسم المستخدم**: `gwilson@sample.com`
-* أو يمكنك الضغط على **Sign Up** في الواجهة لإنشاء حساب مسافر جديد.
+The SQL file located at `database/masar_flights_db.sql` contains the following tables:
+
+| Table Name | Description |
+|---|---|
+| `system_settings` | Stores general system settings, including the system name, email address, phone number, cover image, and website description. |
+| `airlines_list` | Stores airline information and uploaded airline logos. |
+| `airport_list` | Stores airport records and their geographical locations. |
+| `flight_list` | Stores scheduled flight details, departure and arrival times, ticket prices, and seat availability. |
+| `booked_flight` | Stores flight reservations, passenger records, and passenger contact information. |
+| `users` | Stores administrator and system user accounts, authentication credentials, and access permissions. |
 
 ---
 
-## 📂 هيكل ملفات ومجلدات المشروع
+## 💻 System Requirements
+
+To install and run **Masar Flights**, ensure that your environment meets the following requirements:
+
+- **Local Web Server Environment:** [XAMPP](https://www.apachefriends.org/) (recommended), WampServer, or Laragon.
+- **Web Server:** Apache (running and properly configured).
+- **Database Server:** MySQL or MariaDB.
+- **Web Browser:** A modern browser such as Google Chrome, Microsoft Edge, Mozilla Firefox, or Safari.
+
+### Required PHP Extensions
+
+- `mysqli`
+- `session`
+- `json`
+- `fileinfo`
+- `mbstring`
+- `gd`
+
+---
+
+## 🚀 Installation and Setup Guide
+
+Follow the steps below to install and run the project on your local machine.
+
+### Step 1: Start the XAMPP Server
+
+1. Open the **XAMPP Control Panel**.
+2. Click **Start** next to **Apache** and **MySQL**.
+3. Ensure that both services are running successfully and highlighted in green.
+
+### Step 2: Copy the Project Files
+
+1. Navigate to your XAMPP installation directory.
+2. Locate the `htdocs` folder.
+3. Copy the entire `Masar_Flights` project folder into `htdocs`.
+
+**Example path on Windows:**
+
+`C:\xampp\htdocs\Masar_Flights`
+
+### Step 3: Create and Import the Database
+
+1. Open your web browser and navigate to phpMyAdmin:
+
+   `http://localhost/phpmyadmin`
+
+2. Click **New** in the left sidebar.
+
+3. Enter the following database name:
+
+   `masar_flights_db`
+
+4. Select the collation:
+
+   `utf8mb4_general_ci`
+
+5. Click **Create**.
+
+6. Select the newly created database and navigate to the **Import** tab.
+
+7. Click **Choose File** and select:
+
+   `database/masar_flights_db.sql`
+
+8. Click **Go** to import the database tables and sample data.
+
+### Step 4: Verify Database Connection Settings (Optional)
+
+The default database connection configuration is defined in:
+
+`admin/db_connect.php`
+
+**Default connection:**
+
+```php
+$conn = new mysqli('localhost', 'root', '', 'masar_flights_db');
+```
+
+If your MySQL server uses a password, replace the empty password parameter with your local database password.
+
+**Note:** Do not commit real database passwords or other sensitive credentials to a public repository.
+
+### Step 5: Access the Application
+
+Once the installation is complete, open the following URLs in your browser.
+
+**Client Portal:**
+
+`http://localhost/Masar_Flights`
+
+**Administration Dashboard:**
+
+`http://localhost/Masar_Flights/admin`
+
+---
+
+## 🔑 Default Login Credentials
+
+### Administrator Account
+
+**Admin Login URL:**
+
+`http://localhost/Masar_Flights/admin`
+
+**Username:** `admin`
+
+**Password:** `admin123`
+
+**Security Notice:** These are development/demo credentials only. Change or disable them before deploying the application to a public server. Do not use default credentials in a production environment.
+
+### Demo Passenger Account
+
+**Username:**
+
+`gwilson@sample.com`
+
+Alternatively, navigate to the **Sign Up** page to create a new passenger account.
+
+---
+
+## 📂 Project File and Folder Structure
 
 ```text
 Masar_Flights/
-├── admin/                         # لوحة تحكم المسؤول (Masar Flights Admin)
-│   ├── assets/                    # ملفات التصميم والمكتبات المحلية (DataTables, Select2, ...)
-│   ├── admin_class.php            # المعالجة المركزية لجميع العمليات (CRUD Actions)
-│   ├── ajax.php                   # استقبال وتوجيه طلبات AJAX
-│   ├── db_connect.php             # الاتصال بقاعدة البيانات
-│   ├── airlines.php               # إدارة شركات الطيران والشعارات
-│   ├── airport.php                # إدارة المطارات والمدن
-│   ├── flights.php                # عرض وجدولة الرحلات
-│   ├── manage_flight.php          # إضافة وتعديل تفاصيل رحلة
-│   ├── booked.php                 # متابعة الحجوزات والركاب
-│   ├── manage_booked.php          # تعديل بيانات الركاب والتذاكر
-│   ├── site_settings.php          # تخصيص إعدادات مسار فلايتس
-│   ├── users.php                  # إدارة مستخدمي الإدارة
-│   ├── login.php                  # صفحة دخول لوحة التحكم
-│   ├── topbar.php                 # الشريط العلوي للوحة الإدارة
-│   └── index.php                  # الصفحة الرئيسية للإدارة
-├── assets/                        # الصور وشعارات شركات الطيران
-├── css/                           # ملفات التنسيق للواجهة العامة
+├── admin/                         # Administration dashboard
+│   ├── assets/                    # Admin assets and libraries
+│   ├── admin_class.php            # Central CRUD operations handler
+│   ├── ajax.php                   # AJAX request handler
+│   ├── db_connect.php             # Database connection
+│   ├── airlines.php               # Airline management
+│   ├── airport.php                # Airport and city management
+│   ├── flights.php                # Flight scheduling and listing
+│   ├── manage_flight.php          # Add and edit flight details
+│   ├── booked.php                 # Booking and passenger records
+│   ├── manage_booked.php          # Edit passenger and booking details
+│   ├── site_settings.php          # System configuration
+│   ├── users.php                  # Administrator user management
+│   ├── login.php                  # Admin login page
+│   ├── topbar.php                 # Admin navigation bar
+│   └── index.php                  # Admin dashboard homepage
+├── assets/                        # Images and airline logos
+├── css/                           # Public frontend stylesheets
 ├── database/
-│   └── masar_flights_db.sql      # ملف قاعدة بيانات مسار فلايتس
-├── js/                            # سكريبتات الواجهة العامة
-├── about.php                      # صفحة نبذة عن مسار فلايتس
-├── book_flight.php                # نافذة حجز المقاعد والركاب
-├── flights.php                    # صفحة عرض ونتائج البحث عن الرحلات
-├── footer.php                     # تذييل الصفحات والمكتبات
-├── get_fields.php                 # توليد حقول بيانات الركاب
-├── header.php                     # الترويسة ومكتبات التصميم
-├── home.php                       # واجهة البحث وحجز الرحلات
-├── index.php                      # الصفحة الرئيسية للموقع
-├── login.php                      # تسجيل دخول المسافر
-├── signup.php                     # إنشاء حساب مسافر جديد
-├── requirements.txt               # متطلبات الخادم والمكتبات
-└── README.md                      # التوثيق الشامل لنظام مسار فلايتس
+│   └── masar_flights_db.sql       # Database schema and sample data
+├── js/                            # Public frontend JavaScript files
+├── about.php                      # About Us page
+├── book_flight.php                # Flight booking form
+├── flights.php                    # Flight search results
+├── footer.php                     # Footer and included libraries
+├── get_fields.php                 # Dynamic passenger input fields
+├── header.php                     # Header and frontend libraries
+├── home.php                       # Homepage and flight search
+├── index.php                      # Main application entry point
+├── login.php                      # Passenger login
+├── signup.php                     # Passenger registration
+├── requirements.txt               # Server and library requirements
+└── README.md                      # Complete project documentation
 ```
 
 ---
 
-## ❓ حل المشاكل الشائعة
+## ❓ Troubleshooting
 
-1. **خطأ الاتصال بقاعدة البيانات `Could not connect to mysql`**:
-   - تأكد من تشغيل خادم MySQL في لوحة تحكم XAMPP.
-   - تأكد من استيراد قاعدة البيانات بالاسم `masar_flights_db`.
-   - راجع بيانات اسم المستخدم وكلمة المرور في ملف [admin/db_connect.php](file:///f:/Masar_Flights/admin/db_connect.php).
+### 1. Database Connection Error: `Could not connect to mysql`
 
-2. **عدم ظهور صور شركات الطيران أو صور الغلاف**:
-   - تأكد من وجود مجلد `assets/img/` وتوفر صلاحيات القراءة والكتابة فيه.
+If the application cannot connect to the database:
 
-3. **التحويل إلى صفحة 404 Not Found**:
-   - تأكد من تطابق اسم مجلد المشروع داخل `htdocs` مع الاسم المكتوب في شريط عنوان المتصفح.
+- Ensure that the MySQL service is running in the XAMPP Control Panel.
+- Verify that the database has been created with the correct name: `masar_flights_db`.
+- Confirm that the SQL file was successfully imported.
+- Check the database username and password in `admin/db_connect.php`.
+
+### 2. Airline Logos or Cover Images Are Not Displayed
+
+If airline logos or website cover images do not appear:
+
+- Verify that the `assets/img/` directory exists.
+- Ensure that the required image files are available.
+- Check that the directory has appropriate read and write permissions.
+
+### 3. Error 404: Not Found
+
+If the application returns a 404 error:
+
+- Make sure the project folder is placed inside the `htdocs` directory.
+- Verify that the folder name matches the URL path.
+
+For example, if your project folder is named `Masar_Flights`, the application URL should be:
+
+`http://localhost/Masar_Flights`
+
+- Ensure that the Apache server is running correctly.
+
+---
+
+## 📄 Project Overview
+
+**Project Name:** Masar Flights
+
+**Project Type:** Web-Based Flight Booking and Management System
+
+**Backend:** PHP, MySQL, MySQLi
+
+**Frontend:** HTML5, CSS3, Bootstrap, jQuery
+
+**Main Modules:** Flight Search, Ticket Booking, Passenger Management, Airlines Management, Airports Management, Flight Scheduling, User Management, and Administration Dashboard.
